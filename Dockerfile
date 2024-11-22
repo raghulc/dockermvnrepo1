@@ -9,6 +9,6 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 
 FROM tomcat
 # Remove the exisitng app in tomcat
-RUN rm -fr /use/local/tomcat/webapps/ROOT
+RUN rm -fr /usr/local/tomcat/webapps/ROOT
 # Copy the app that has been built by the stage 1 which is myjapp.war as ROOT.war in the destination
-COPY --from=stage1 /use/src/app/target/myjapp1.war /use/local/tomcat/webapps/ROOT.war
+COPY --from=stage1 /usr/src/app/target/myjapp1.war /use/local/tomcat/webapps/ROOT.war
